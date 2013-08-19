@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Simulation variable names:
+begin_time : an actual date time which will be used in the report
+time_unit : number of seconds represented by each tick
+tick : 0.5 second (actual wake up distance for dispatcher)
+timeout : number of seconds until timeount
+arrival_rate : a floating number used in calculating customer arrival (optional)
+dispatching_policy: a few distribution function names will instantiate different Dispatcher class
+
+Array of objects will be created for these:
+
+types : define type and description
+queue types : assigning types to queue
+service_station types queues : assigning queues and types to service station
+-->
+
+
+<root>
+
+    <settings>    
+            <property id="begin_time">value</property>
+            <property id="time_unit">1</property>
+            <property id="tick">1.5</property>
+            <property id="timeout">60</property>
+            <property id="dispatching_policy">default</property>
+    </settings>
+    
+    <types>
+        <customer_types>
+            <customer_type id="priority1">
+                <property id="description">Priority 1 Customer</property>
+                <property id="serviceTime">3</property>
+                <property id="totalCustomers">15</property>
+            </customer_type>
+            <customer_type id="priority2">
+                <property id="description">Priority 2 Customer</property>
+                <property id="serviceTime">1</property>
+                <property id="totalCustomers">5</property>
+            </customer_type>
+            <customer_type id="priority3">
+                <property id="description">Priority 3 Customer</property>
+                <property id="serviceTime">.5</property>
+                <property id="totalCustomers">10</property>
+            </customer_type>
+        </customer_types>
+    </types>
+    
+    <queues>
+        <queue id="queueA">
+            <customer_types>priority1</customer_types>
+            <customer_types>priority2</customer_types>
+            <customer_types>priority3</customer_types>
+        </queue>
+        <queue id="queueB">
+            <customer_types>priority1</customer_types>
+            <customer_types>priority2</customer_types>
+            <customer_types>priority3</customer_types>
+        </queue>
+        <queue id="queueC">
+            <customer_types>priority1</customer_types>
+            <customer_types>priority2</customer_types>
+            <customer_types>priority3</customer_types>
+        </queue>
+    </queues>
+
+    <service_station_types>
+        <service_station id="SS" type="PriorityServiceStation">        
+            <assigned_queue id="1">queueA</assigned_queue>
+            <assigned_queue id="2">queueB</assigned_queue>
+            <assigned_queue id="3">queueC</assigned_queue>
+            <allowed_customer_type id="1">priority1</allowed_customer_type>
+            <allowed_customer_type id="2">priority2</allowed_customer_type>
+            <allowed_customer_type id="3">priority3</allowed_customer_type>
+        </service_station>
+    </service_station_types>
+    
+</root>

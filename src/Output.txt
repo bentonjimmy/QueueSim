@@ -1,0 +1,11 @@
+Simulation starts: 12/05/2013 05:27:03.485
+----------------------------------------------------------------
+The LONGEST time spent for a customer to get serviced: 38.668
+The SHORTEST time spent for a customer to get serviced: 0.632
+The AVERAGE time spent for a customer to get serviced: 14.948
+The LONGEST queue during simulation: queueA
+----------------------------------------------------------------
+Total customers serviced by 1 service station(s): 30
+Total ticks: 39
+----------------------------------------------------------------
+Simulation ends: 12/05/2013 05:28:02.676
